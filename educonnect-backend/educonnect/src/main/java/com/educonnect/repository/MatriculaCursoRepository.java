@@ -11,9 +11,7 @@ import com.educonnect.model.MatriculaCurso;
 public interface MatriculaCursoRepository extends JpaRepository<MatriculaCurso, Long> {
 
     List<MatriculaCurso>
-            findByEstadoOrderByFechaMatriculaDesc(
-                    String estado
-            );
+            findByEstadoOrderByFechaMatriculaDesc(String estado);
 
     List<MatriculaCurso>
             findAllByOrderByFechaMatriculaDesc();

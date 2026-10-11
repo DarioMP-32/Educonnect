@@ -1,0 +1,77 @@
+<section class="dashboard">
+  <header class="dashboard-header">
+    <div>
+      <h1>Matrículas EduConnect</h1>
+      <p class="subtitulo">
+        Mostrando {{ matriculasFiltradas().length }} de {{ matriculas().length }} matrículas
+      </p>
+    </div>
+    <a class="btn btn-primario" routerLink="/nueva-matricula">+ Nueva matrícula</a>
+  </header>
+
+  <!-- Filtros por estado -->
+  <div class="filtros">
+    @for (estado of ['TODAS', 'ACTIVA', 'COMPLETADA', 'CANCELADA']; track estado) {
+      <button
+        type="button"
+        class="filtro"
+        [class.activo]="filtroEstado() === estado"
+        (click)="cambiarFiltro(estado)">
+        {{ estado }}
+      </button>
+    }
+  </div>
+
+  <!-- Tabla -->
+  <div class="tabla-contenedor">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Estudiante</th>
+          <th>Profesor</th>
+          <th>Curso</th>
+          <th class="num">Créditos</th>
+          <th>Periodo</th>
+          <th>Estado</th>
+          <th class="num">Arancel</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (m of matriculasFiltradas(); track m.id) {
+          <tr>
+            <td class="codigo">{{ m.codigoMatricula }}</td>
+            <td>
+              {{ m.nombreEstudiante }}
+              <small class="carnet">{{ m.carnetEstudiante }}</small>
+            </td>
+            <td>{{ m.nombreProfesor }}</td>
+            <td>{{ m.nombreCurso }}</td>
+            <td class="num">{{ m.creditos }}</td>
+            <td>{{ m.periodo }}</td>
+            <td>
+              <span class="badge" [class]="'badge ' + m.estado.toLowerCase()">{{ m.estado }}</span>
+            </td>
+            <td class="num">{{ m.montoArancel | currency: 'CRC' : 'symbol-narrow' : '1.0-0' }}</td>
+            <td>{{ m.fechaMatricula | date: 'dd/MM/yyyy HH:mm' }}</td>
+            <td>
+              @if (m.estado === 'ACTIVA') {
+                <button type="button" class="btn btn-completar" (click)="avanzarEstado(m)">
+                  Completar
+                </button>
+              } @else {
+                <span class="sin-accion">—</span>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="10" class="vacio">No hay matrículas para mostrar.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

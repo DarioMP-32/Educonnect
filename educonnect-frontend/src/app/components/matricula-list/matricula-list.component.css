@@ -1,0 +1,33 @@
+.dashboard { max-width: 1200px; margin: 0 auto; padding: 24px 16px; font-family: system-ui, sans-serif; color: #1f2937; }
+
+.dashboard-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.dashboard-header h1 { margin: 0; font-size: 1.6rem; }
+.subtitulo { margin: 4px 0 0; color: #6b7280; font-size: .9rem; }
+
+.filtros { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.filtro { padding: 6px 14px; border: 1px solid #d1d5db; border-radius: 999px; background: #fff; cursor: pointer; font-size: .85rem; }
+.filtro:hover { background: #f3f4f6; }
+.filtro.activo { background: #2563eb; border-color: #2563eb; color: #fff; }
+
+.tabla-contenedor { overflow-x: auto; border: 1px solid #e5e7eb; border-radius: 8px; }
+.tabla { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.tabla th, .tabla td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e5e7eb; white-space: nowrap; }
+.tabla thead th { background: #f9fafb; font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; color: #4b5563; }
+.tabla tbody tr:hover { background: #f9fafb; }
+.tabla tbody tr:last-child td { border-bottom: none; }
+.num { text-align: right !important; }
+.codigo { font-family: ui-monospace, monospace; font-size: .85rem; }
+.carnet { display: block; color: #6b7280; font-size: .75rem; }
+.vacio { text-align: center !important; padding: 32px !important; color: #6b7280; }
+.sin-accion { color: #9ca3af; }
+
+.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: .75rem; font-weight: 600; }
+.badge.activa { background: #dcfce7; color: #166534; }
+.badge.completada { background: #dbeafe; color: #1e40af; }
+.badge.cancelada { background: #fee2e2; color: #991b1b; }
+
+.btn { display: inline-block; padding: 7px 14px; border: none; border-radius: 6px; font-size: .85rem; cursor: pointer; text-decoration: none; }
+.btn-primario { background: #2563eb; color: #fff; }
+.btn-primario:hover { background: #1d4ed8; }
+.btn-completar { background: #16a34a; color: #fff; padding: 4px 10px; }
+.btn-completar:hover { background: #15803d; }

@@ -1,0 +1,50 @@
+<section class="form-contenedor">
+  <h1>Nueva matrícula</h1>
+
+  @if (errorMensaje()) {
+    <div class="alerta-error">{{ errorMensaje() }}</div>
+  }
+
+  <form #f="ngForm" (ngSubmit)="guardar()">
+    <div class="fila">
+      <label>
+        ID del estudiante
+        <input type="number" name="estudianteId" [(ngModel)]="payload.estudianteId" min="1" required />
+      </label>
+
+      <label>
+        ID del profesor
+        <input type="number" name="profesorId" [(ngModel)]="payload.profesorId" min="1" required />
+      </label>
+    </div>
+
+    <label>
+      Nombre del curso
+      <input type="text" name="nombreCurso" [(ngModel)]="payload.nombreCurso" required />
+    </label>
+
+    <div class="fila">
+      <label>
+        Créditos
+        <input type="number" name="creditos" [(ngModel)]="payload.creditos" min="1" max="12" required />
+      </label>
+
+      <label>
+        Periodo
+        <input type="text" name="periodo" [(ngModel)]="payload.periodo" required />
+      </label>
+
+      <label>
+        Monto del arancel
+        <input type="number" name="montoArancel" [(ngModel)]="payload.montoArancel" min="0" step="0.01" required />
+      </label>
+    </div>
+
+    <div class="acciones">
+      <a class="btn btn-secundario" routerLink="/matriculas">Cancelar</a>
+      <button type="submit" class="btn btn-primario" [disabled]="f.invalid || guardando()">
+        {{ guardando() ? 'Guardando...' : 'Guardar matrícula' }}
+      </button>
+    </div>
+  </form>
+</section>

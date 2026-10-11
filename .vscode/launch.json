@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EduconnectApplication<educonnect>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.educonnect.EduconnectApplication",
+            "projectName": "educonnect",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
